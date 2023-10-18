@@ -1,0 +1,36 @@
+{
+  "name": "xhooks",
+  "version": "0.0.1",
+  "description": "A collection of popular React hooks.",
+  "type": "module",
+  "repository": "peiofour/xhooks",
+  "devDependencies": {
+    "@types/react": "^18.2.20",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.1.6"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "exports": {
+    "default": "./index.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "keywords": [
+    "react",
+    "hooks",
+    "js",
+    "javascript",
+    "typescript"
+  ],
+  "author": "Pierre Fournier",
+  "license": "MIT"
+}
