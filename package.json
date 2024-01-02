@@ -1,7 +1,7 @@
 {
   "name": "xhooks",
   "version": "0.0.1",
-  "description": "A collection of popular React hooks.",
+  "description": "A complete and lightweight collection of React hooks.",
   "type": "module",
   "repository": "peiofour/xhooks",
   "devDependencies": {
@@ -17,6 +17,7 @@
   "exports": {
     "default": "./index.js"
   },
+  "types": "index.d.ts",
   "engines": {
     "node": ">=16"
   },
