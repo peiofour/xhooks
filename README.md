@@ -26,6 +26,7 @@ pnpm install xhooks
 - [useClickAway](#useclickaway)
 - [useCopyToClipboard](#usecopytoclipboard)
 - [useDarkMode](#usedarkmode)
+- [useDefaultState](#usedefaultstate)
 - [useGeolocation](#usegeolocation)
 - [useLocalStorage](#uselocalstorage)
 - [useMediaQuery](#usemediaquery)
@@ -167,6 +168,34 @@ const MyComponent = () => {
   - `enable: () => void`: Enables the dark mode state.
   - `disable: () => void`: Disables the dark mode state.
   - `isDarkMode: boolean`: The boolean state that indicates whether the dark mode is enabled or not.
+
+
+### useDefaultState
+
+A hook that functions similar to `useState`, with the added capability to receive a defaultValue and potentially an initialState.
+
+```tsx
+import { useDefaultState } from 'path-to-hooks';
+
+const MyComponent = () => {
+  const [value, setValue] = useDefaultState('defaultValue', 'initialValue');
+
+  // Example: Update state on button click
+  return (
+    <div>
+      <p>Current Value: {value}</p>
+      <button onClick={() => setValue('New Value')}>Update Value</button>
+    </div>
+  );
+};
+```
+
+- **Parameters:**
+  - `defaultValue: TValue`: The default value of the state.
+  - `initialValue: TValue`: (Optional) The initial value of the state.
+- **Returns:**
+  - `value: TValue`: The current value of the state.
+  - `setValue: (value: TValue) => void`: The function that sets the value of the state.
 
 ### useGeolocation
 

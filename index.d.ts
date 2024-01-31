@@ -24,6 +24,10 @@ declare module "@peiofour/xhooks" {
     disable: () => void,
     isDarkMode: boolean
   ];
+  export function useDefaultValue<TValue>(
+    value: TValue,
+    defaultValue: TValue
+  ): [value: TValue, setValue: (value: TValue) => void];
   export function useGeolocation(): {
     loading: boolean;
     error: GeolocationPositionError | ErrorConstructor | null;

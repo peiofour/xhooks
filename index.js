@@ -85,6 +85,20 @@ export function useDarkMode() {
 
   return [toogle, enable, disable, isDarkMode];
 }
+/**
+ * A hook that functions similar to useState, with the added capability to receive a defaultValue and potentially an initialState.
+ * @template TValue The type of the state
+ * @param {TValue} defaultValue The default value of the state
+ * @param {TValue | undefined} initialValue The initial value of the state
+ * @returns {[TValue, (value: TValue) => void]} A tuple containing the value and the setValue
+ */
+export function useDefaultState(defaultValue, initialValue) {
+  const [value, setValue] = React.useState(
+    initialValue !== undefined ? initialValue : defaultValue
+  );
+
+  return [value, setValue];
+}
 
 /**
  * A hook that returns the current location
