@@ -42,7 +42,7 @@ pnpm install xhooks
 A simple hook that returns a boolean value and its setters. It's useful for managing boolean states.
 
 ```tsx
-import { useBoolean } from "path-to-hooks";
+import { useBoolean } from "xhooks";
 
 const MyComponent = () => {
   const [value, setValue, setTrue, setFalse, toggle] = useBoolean(true);
@@ -74,7 +74,7 @@ const MyComponent = () => {
 A hook that fires a callback when the user clicks anywhere on the document.
 
 ```tsx
-import { useClickAnywhere } from "path-to-hooks";
+import { useClickAnywhere } from "xhooks";
 
 const MyComponent = () => {
   useClickAnywhere(() => {
@@ -95,7 +95,7 @@ const MyComponent = () => {
 A hook that fires a callback when the user clicks outside of the given ref element.
 
 ```tsx
-import { useClickAway } from "path-to-hooks";
+import { useClickAway } from "xhooks";
 
 const MyComponent = () => {
   const ref = useRef(null);
@@ -120,7 +120,7 @@ const MyComponent = () => {
 A hook that copies the text to the clipboard and sets the `isCopied` state to `true` for a given timeout.
 
 ```tsx
-import { useCopyToClipboard } from "path-to-hooks";
+import { useCopyToClipboard } from "xhooks";
 
 const MyComponent = () => {
   const [copyToClipboard, isCopied] = useCopyToClipboard(2000);
@@ -148,7 +148,7 @@ const MyComponent = () => {
 A hook that manages the state of dark mode.
 
 ```tsx
-import { useDarkMode } from 'path-to-hooks';
+import { useDarkMode } from 'xhooks';
 
 const MyComponent = () => {
   const [toggle, enable, disable, isDarkMode] = useDarkMode();
@@ -175,7 +175,7 @@ const MyComponent = () => {
 A hook that functions similar to `useState`, with the added capability to receive a defaultValue and potentially an initialState.
 
 ```tsx
-import { useDefaultState } from 'path-to-hooks';
+import { useDefaultState } from 'xhooks';
 
 const MyComponent = () => {
   const [value, setValue] = useDefaultState('defaultValue', 'initialValue');
@@ -202,7 +202,7 @@ const MyComponent = () => {
 A hook that returns the current location.
 
 ```tsx
-import { useGeolocation } from 'path-to-hooks';
+import { useGeolocation } from 'xhooks';
 
 const MyComponent = () => {
   const { loading, error, data } = useGeolocation();
@@ -232,7 +232,7 @@ const MyComponent = () => {
 A hook that returns the current value of local storage.
 
 ```tsx
-import { useLocalStorage } from 'path-to-hooks';
+import { useLocalStorage } from 'xhooks';
 
 const MyComponent = () => {
   const [value, setValue] = useLocalStorage('myKey', 'defaultValue');
@@ -260,7 +260,7 @@ const MyComponent = () => {
 A hook that takes in a media query string and utilizes the matchMedia API to check whether it corresponds to the present document.
 
 ```tsx
-import { useMediaQuery } from 'path-to-hooks';
+import { useMediaQuery } from 'xhooks';
 
 const MyComponent = () => {
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -282,7 +282,7 @@ const MyComponent = () => {
 A hook that returns the current value of the mouse position.
 
 ```tsx
-import { useMousePosition } from 'path-to-hooks';
+import { useMousePosition } from 'xhooks';
 
 const MyComponent = () => {
   const { x, y } = useMousePosition();
@@ -302,7 +302,7 @@ const MyComponent = () => {
 A hook that returns the previous value of the given state.
 
 ```tsx
-import { usePrevious } from 'path-to-hooks';
+import { usePrevious } from 'xhooks';
 import { useState } from 'react';
 
 const MyComponent = () => {
@@ -331,7 +331,7 @@ const MyComponent = () => {
 A hook that returns the current value of the session storage.
 
 ```tsx
-import { useSessionStorage } from 'path-to-hooks';
+import { useSessionStorage } from 'xhooks';
 
 const MyComponent = () => {
   const [value, setValue] = useSessionStorage('myKey', 'defaultValue');
@@ -358,7 +358,7 @@ const MyComponent = () => {
 A hook that returns the current value of the window scroll position.
 
 ```tsx
-import { useWindowScroll } from 'path-to-hooks';
+import { useWindowScroll } from 'xhooks';
 
 const MyComponent = () => {
   const { scrollX, scrollY } = useWindowScroll();
@@ -377,7 +377,7 @@ const MyComponent = () => {
 A hook that returns the current value of the window size.
 
 ```tsx
-import { useWindowSize } from 'path-to-hooks';
+import { useWindowSize } from 'xhooks';
 
 const MyComponent = () => {
   const { width, height } = useWindowSize();
@@ -397,7 +397,7 @@ const MyComponent = () => {
 A hook that fires a callback when the window is resized.
 
 ```tsx
-import { useWindowResize } from 'path-to-hooks';
+import { useWindowResize } from 'xhooks';
 import { useState } from 'react';
 
 
