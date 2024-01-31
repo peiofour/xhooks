@@ -29,18 +29,21 @@ declare module "@peiofour/xhooks" {
     error: GeolocationPositionError | ErrorConstructor | null;
     data: GeolocationPosition | null;
   };
-  export function useLocalStorage(
+  export function useLocalStorage<TValue>(
     key: string,
-    initialValue?: any
-  ): [value: any, setValue: (value: any) => void];
+    initialValue?: TValue
+  ): [value: TValue, setValue: (value: TValue) => void];
+  export function useMediaQuery(query: string): boolean;
   export function useMousePosition(): {
     x: number;
     y: number;
   };
-  export function useSessionStorage(
+  export function usePrevious<TValue>(value: TValue): TValue;
+  export function useSessionStorage<TValue>(
     key: string,
-    initialValue?: any
-  ): [value: any, setValue: (value: any) => void];
+    initialValue?: TValue
+  ): [value: TValue, setValue: (value: TValue) => void];
   export function useWindowScroll(): { scrollX: number; scrollY: number };
   export function useWindowSize(): { width: number; height: number };
+  export function useWindowResize(callback: () => void): void;
 }

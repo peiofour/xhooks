@@ -129,9 +129,10 @@ export function useGeolocation() {
 
 /**
  * A hook that returns the current value of the local storage
+ * @template TValue The type of the local storage
  * @param {string} key The key of the local storage
- * @param {any} initialValue The initial value of the local storage
- * @returns {[any, (value: any) => void]}
+ * @param {TValue} initialValue The initial value of the local storage
+ * @returns {[TValue, (value: TValue) => void]}
  */
 
 export function useLocalStorage(key, initialValue) {
@@ -145,6 +146,26 @@ export function useLocalStorage(key, initialValue) {
   }, [value]);
 
   return [value, setValue];
+}
+
+/**
+ * A hook that takes in a media query string and utilizes the matchMedia API to check whether it corresponds to the present document.
+ * @param {string} query The media query
+ * @returns {boolean} The current value of the media query
+ */
+
+export function useMediaQuery(query) {
+  const [isMatch, setIsMatch] = React.useState(false);
+
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia(query);
+    setIsMatch(mediaQuery.matches);
+    const handler = (e) => setIsMatch(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
+
+  return isMatch;
 }
 
 /**
@@ -172,9 +193,25 @@ export function useMousePosition() {
 }
 
 /**
+ * A hook that returns the previous value of the given value
+ * @template TValue The type of the value
+ * @param {TValue} value The value
+ * @returns {TValue} The previous value of the given value
+ */
+export function usePrevious(value) {
+  const ref = React.useRef();
+  React.useEffect(() => {
+    ref.current = value;
+  }, [value]);
+  return ref.current;
+}
+
+/**
  * A hook that returns the current value of the session storage
+ * @template TValue The type of the session storage
  * @param {string} key The key of the session storage
- * @param {any} initialValue The initial value of the session storage
+ * @param {TValue} initialValue The initial value of the session storage
+ * @returns {[TValue, (value: TValue) => void]}
  */
 
 export function useSessionStorage(key, initialValue) {
@@ -235,3 +272,17 @@ export function useWindowSize() {
 
   return size;
 }
+
+/**
+ * A hook that fires a callback when the window resizes
+ * @param {() => void} callback The callback to fire
+ */
+
+export function useWindowResize(callback) {
+  React.useEffect(() => {
+    const handler = () => callback();
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
+}
+

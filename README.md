@@ -28,10 +28,13 @@ pnpm install xhooks
 - [useDarkMode](#usedarkmode)
 - [useGeolocation](#usegeolocation)
 - [useLocalStorage](#uselocalstorage)
+- [useMediaQuery](#usemediaquery)
 - [useMousePosition](#usemouseposition)
+- [usePrevious](#useprevious)
 - [useSessionStorage](#usesessionstorage)
 - [useWindowScroll](#usewindowscroll)
 - [useWindowSize](#usewindowsize)
+- [useWindowResize](#usewindowresize)
 
 ### useBoolean
 
@@ -222,6 +225,29 @@ const MyComponent = () => {
   - `value: string`: The current value of the local storage item.
   - `setValue: (value: string) => void`: The function that sets the value of the local storage item.
 
+
+### useMediaQuery
+
+A hook that takes in a media query string and utilizes the matchMedia API to check whether it corresponds to the present document.
+
+```tsx
+import { useMediaQuery } from 'path-to-hooks';
+
+const MyComponent = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
+  // Example: Display a different component based on the screen size
+  return <div>{isMobile ? <MobileComponent /> : <DesktopComponent />}</div>;
+};
+```
+
+- **Parameters:**
+  - `query: string`: The media query string.
+- **Returns:**
+  - `matches: boolean`: The boolean state that indicates whether the media query matches the present document or not.
+
+
+
 ### useMousePosition
 
 A hook that returns the current value of the mouse position.
@@ -240,6 +266,36 @@ const MyComponent = () => {
 - **Returns:**
   - `x: number`: The current value of the mouse X position.
   - `y: number`: The current value of the mouse Y position.
+
+
+### usePrevious
+
+A hook that returns the previous value of the given state.
+
+```tsx
+import { usePrevious } from 'path-to-hooks';
+import { useState } from 'react';
+
+const MyComponent = () => {
+  const [value, setValue] = useState(0);
+  const previousValue = usePrevious(value);
+
+  // Example: Display previous value
+  return (
+    <div>
+      <p>Current Value: {value}</p>
+      <p>Previous Value: {previousValue}</p>
+      <button onClick={() => setValue(value + 1)}>Increment</button>
+    </div>
+  );
+};
+```
+
+- **Parameters:**
+  - `state: TValue`: The state whose previous value is to be returned.
+- **Returns:**
+  - `previousValue: TValue`: The previous value of the given state.
+
 
 ### useSessionStorage
 
@@ -305,4 +361,32 @@ const MyComponent = () => {
 - **Returns:**
   - `width: number`: The current value of the window width.
   - `height: number`: The current value of the window height.
+
+
+### useWindowResize
+
+A hook that fires a callback when the window is resized.
+
+```tsx
+import { useWindowResize } from 'path-to-hooks';
+import { useState } from 'react';
+
+
+const MyComponent = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+
+  useWindowResize(() => {
+    // Example: Update window size on resize
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  });
+
+  return <p>Window Size: Width={width}, Height={height}</p>;
+}
+
+```
+
+- **Parameters:**
+  - `callback: () => void`: The callback function to be executed on window resize.
 
