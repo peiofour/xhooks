@@ -1,6 +1,6 @@
 {
   "name": "xhooks",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A complete and lightweight collection of React hooks.",
   "type": "module",
   "repository": "peiofour/xhooks",
